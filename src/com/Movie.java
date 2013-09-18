@@ -36,4 +36,8 @@ public class Movie {
         else
             return -1;
     }
+
+    public HashMap getRatingMap() {
+        return ratings;
+    }
 }

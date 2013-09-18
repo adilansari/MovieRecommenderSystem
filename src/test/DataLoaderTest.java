@@ -2,12 +2,15 @@ package test;
 
 
 import com.DataLoader;
+import com.Movie;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 
 /**
@@ -44,5 +47,18 @@ public class DataLoaderTest extends TestCase {
     public void testGetMovies() throws Exception {
         HashMap map = dl.getMovies();
         assertEquals(20, map.size());
+    }
+
+    @Test
+    public void testRatingCount() throws Exception {
+        HashMap map = dl.getMovies();
+        int count = 0;
+        Iterator it = map.entrySet().iterator();
+        while(it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            Movie m= (Movie) pair.getValue();
+            count += m.getRatingMap().size();
+        }
+        assertEquals(241, count);
     }
 }
