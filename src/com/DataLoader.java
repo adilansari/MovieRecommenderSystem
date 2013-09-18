@@ -51,7 +51,7 @@ public class DataLoader {
                 User user = updateUsers(user_id);
                 int muvi_id = Integer.parseInt(data[1].trim());
                 Movie movie = updateMovies(muvi_id);
-                int rating = Integer.parseInt(data[2].trim());
+                Double rating = Double.parseDouble(data[2].trim());
                 updateRating(user_id,muvi_id,rating);
 
 
@@ -92,7 +92,7 @@ public class DataLoader {
         return movie;
     }
 
-    private boolean updateRating(int user_id, int muvi_id, int rating) {
+    private boolean updateRating(int user_id, int muvi_id, Double rating) {
         User user = users.get(user_id);
         Movie muvi = movies.get(muvi_id);
         muvi.addRating(user,rating);

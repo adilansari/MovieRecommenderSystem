@@ -11,11 +11,11 @@ import java.util.HashMap;
  */
 public class Movie {
     private int id;
-    private HashMap<User, Integer> ratings;
+    private HashMap<User, Double> ratings;
 
     Movie(int id) {
         this.id = id;
-        ratings = new HashMap<User, Integer>();
+        ratings = new HashMap<User, Double>();
     }
 
     public int getId() {
@@ -26,15 +26,15 @@ public class Movie {
         this.id = id;
     }
 
-    public void addRating(User user, int rating) {
+    public void addRating(User user, Double rating) {
         ratings.put(user,rating);
     }
 
-    public int getRating(User user) {
+    public Double getRating(User user) {
         if(ratings.containsKey(user))
             return ratings.get(user);
         else
-            return -1;
+            return -1.00;
     }
 
     public HashMap getRatingMap() {
